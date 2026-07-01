@@ -140,3 +140,32 @@ footer {
 
 
 
+.card{
+transition:.4s;
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 .8rem 2rem rgba(0,0,0,.2)!important;
+
+}
+
+.btn-warning{
+
+transition:.3s;
+
+}
+
+.btn-warning:hover{
+
+transform:scale(1.05);
+
+}
+
+.list-group-item{
+
+border:none;
+
+}
