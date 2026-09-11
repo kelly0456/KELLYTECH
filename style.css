@@ -1,25 +1,92 @@
-/* --- Global Styles --- */
+﻿/* ============================================================
+   Kelly Tech Solutions - Global Stylesheet
+   Theme: Golden (#ffc107) + Dark (#212529) - do not change brand colors
+   ============================================================ */
+
+:root {
+    --brand-gold: #ffc107;
+    --brand-gold-dark: #e0a800;
+    --brand-dark: #212529;
+    --brand-black: #1a1a1a;
+    --text-main: #333;
+    --text-muted: #555;
+    --bg-light: #f9fafb;
+    --radius: 12px;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15);
+    --transition: 0.3s ease;
+}
+
+/* --- Global / Reset --- */
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f9fafb;
-    color: #333;
+    background: var(--bg-light);
+    color: var(--text-main);
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* --- Navigation --- */
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* --- Navigation (shared across all pages) --- */
+.navbar {
+    padding: 0.5rem 0;
+}
+
 .navbar-brand {
     font-size: 1.3rem;
 }
 
+.navbar-brand img {
+    object-fit: cover;
+}
+
 .navbar-nav .nav-link {
-    transition: color 0.3s ease;
+    transition: color var(--transition);
+    position: relative;
+    padding: 0.5rem 1rem;
 }
 
 .navbar-nav .nav-link:hover {
     color: #000 !important;
     text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Active page indicator (dark gold underline on the golden navbar) */
+.navbar-light .navbar-nav .nav-link.active {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-color: var(--brand-dark);
+}
+
+/* Navbar that gains shadow after scrolling (toggled in js/script.js) */
+.navbar.scrolled {
+    box-shadow: var(--shadow-lg) !important;
 }
 
 /* --- Hero Section --- */
@@ -30,23 +97,29 @@ body {
 .hero-text h1 {
     font-size: 48px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--brand-black);
 }
 
 .hero-text p {
     font-size: 18px;
-    color: #555;
+    color: var(--text-muted);
 }
 
-/* Hero Media Styling */
+/* Hero media styling */
 .image-wrapper {
     overflow: hidden;
-    border-radius: 100px;
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    transition: transform var(--transition);
 }
 
 .image-wrapper:hover {
     transform: translateY(-5px);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .play-btn {
@@ -64,30 +137,63 @@ body {
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition), background var(--transition);
 }
 
-/* --- Service Cards --- */
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(255, 193, 7, 1);
+}
+
+/* --- Buttons --- */
+.btn-warning {
+    background: var(--brand-gold);
+    border-color: var(--brand-gold);
+    transition: var(--transition);
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+    background: var(--brand-gold-dark);
+    border-color: var(--brand-gold-dark);
+    transform: scale(1.05);
+}
+
+/* --- Cards (services / contact / features) --- */
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--radius);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2) !important;
 }
 
 .card-img-top {
     height: 220px;
+    width: 100%;
     object-fit: cover;
 }
 
-/* --- Feature Cards (Bottom) --- */
+/* Icon circles on service cards */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+}
+
+/* List group items inside cards */
+.list-group-item {
+    border: none;
+}
+
+/* --- Feature Cards (homepage bottom row) --- */
 .feature-card {
     background: #fff;
-    border-radius: 8px;
+    border-radius: var(--radius);
     height: 100%;
-    transition: all 0.3s ease;
+    transition: all var(--transition);
 }
 
 .feature-card:hover {
@@ -95,14 +201,81 @@ body {
     transform: scale(1.02);
 }
 
+/* --- About page helpers --- */
+.hero-dark {
+    background: linear-gradient(135deg, var(--brand-dark), #000);
+    color: #fff;
+    padding: 90px 0;
+}
+
+.icon-box {
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.icon-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.counter {
+    font-size: 45px;
+    font-weight: bold;
+    color: var(--brand-gold);
+}
+
+/* --- Contact / Forms --- */
+.form-card {
+    background: #fff;
+    border-radius: var(--radius);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+/* --- Back to top button (injected by js/script.js) --- */
+#backToTop {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--brand-gold);
+    color: #000;
+    border: none;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition);
+    z-index: 1050;
+    cursor: pointer;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    background: var(--brand-gold-dark);
+    transform: translateY(-3px);
+}
+
 /* --- Footer --- */
 footer a {
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition);
 }
 
 footer a:hover {
-    color: #ffc107 !important;
+    color: var(--brand-gold) !important;
     padding-left: 5px;
 }
 
@@ -111,61 +284,40 @@ footer a:hover {
     .hero {
         text-align: center;
     }
+
     .hero-text {
         text-align: center !important;
         margin-bottom: 40px;
     }
+
     .buttons {
         justify-content: center;
     }
+
     .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-dark {
+        padding: 60px 0;
+    }
+
+    .counter {
         font-size: 36px;
     }
 }
 
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
 
-html, body {
-    height: 100%;
+    .card-img-top {
+        height: 180px;
+    }
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-footer {
-    margin-top: auto;
-}
-
-
-
-
-.card{
-transition:.4s;
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 .8rem 2rem rgba(0,0,0,.2)!important;
-
-}
-
-.btn-warning{
-
-transition:.3s;
-
-}
-
-.btn-warning:hover{
-
-transform:scale(1.05);
-
-}
-
-.list-group-item{
-
-border:none;
-
+/* --- Call-to-action band (about page) --- */
+.cta {
+    background: var(--brand-gold);
 }
