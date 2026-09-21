@@ -250,13 +250,15 @@ a.badge-kt:hover {
     transform: translateY(-2px);
 }
 
-/* Hero media styling */
+/* Hero / about media: the FULL artwork is always shown (natural height,
+   no cropping), so nothing is ever cut off on any screen. */
 .image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     transition: transform var(--transition);
+    background: #fff;
 }
 
 .image-wrapper:hover {
@@ -265,32 +267,39 @@ a.badge-kt:hover {
 
 .image-wrapper img {
     width: 100%;
-    height: 100%;
-    /* One fixed frame ratio for every width: the photo is cropped the same way
-       on a phone and on a desktop, so a subject can never be chopped on one
-       screen while it looks right on another. */
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    /* Natural height: the image decides its own height from its aspect ratio,
+       so tall portraits (Web.jpg, ID.jpeg, cctv, calendar) render 100% -
+       no cropping, no white letterbox bars, on every screen size. */
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+    background: #fff;
 }
 
-/* The hero photo is a stock flyer, so it carries its own headline in the top
-   band and a third-party watermark (another agency's phone numbers) along the
-   bottom edge. 76% parks the crop on the laptop + badge area and keeps both of
-   those bands out of frame at every width. */
-.hero-media .image-wrapper img {
-    object-position: center 76%;
+/* Badges sit UNDER the hero photo (not on top of it), so every pixel of
+   the artwork - including the ID-style images - stays fully visible. */
+.hero-media {
+    position: relative;
 }
 
-/* The about page shows a near-square flyer in full, so its frame stays square
-   (nothing on that artwork is cut off). */
-.image-wrapper.square,
-.image-wrapper.square img {
-    aspect-ratio: 1 / 1;
+.hero-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+    flex-wrap: wrap;
 }
 
-/* Floating glassy badges over the hero image */
+.hero-badges .float-card {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+
+
+/* Floating glassy badges under the hero image (separate row so they cover
+   none of the photo's own pixels) */
 .float-card {
-    position: absolute;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(6px);
     border-radius: 12px;
@@ -310,17 +319,8 @@ a.badge-kt:hover {
     font-size: 1.3rem;
 }
 
-/* Both chips sit low in the frame, over the empty desk area of the photo and
-   below the feature card that is baked into it, so they can never land on top
-   of the artwork's own headline, subtitle or card text. */
-.float-card.fc-1 {
-    bottom: 10%;
-    left: -18px;
-}
-
+/* Stagger the two badges' float animation. */
 .float-card.fc-2 {
-    bottom: 10%;
-    right: -14px;
     animation-delay: 1.2s;
 }
 
@@ -361,37 +361,31 @@ a.badge-kt:hover {
 
 .card-img-top {
     width: 100%;
-    /* Height comes from the frame ratio instead of a fixed pixel height, so the
-       thumbnail is cropped identically in the 3-up desktop grid, the 3-up
-       tablet grid and the 1-up phone layout. */
-    height: auto;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
+    /* Uniform card image height: every card photo is shown 100% (object-fit:
+       contain), including the tall ID.jpeg portrait and the cctv/calendar
+       portraits. Tall images letterbox on white rather than being cropped, so
+       nothing is ever cut off. All cards in a row stay the same height. */
+    height: 320px;
+    object-fit: contain;
+    object-position: center center;
+    background: #fff;
     transition: transform 0.5s ease;
 }
 
-/* Focal points. Every service photo has a different shape, so one shared frame
-   crops each of them differently; steering the crop keeps the actual subject in
-   view and stops half-cut objects or headline text at the frame edge. */
-.img-focus-top {
-    object-position: center 25%;
-}
-
-.img-focus-mid {
-    object-position: center 38%;
-}
-
+/* Kept for compatibility with the img-focus-* classes used in index.html.
+   Images are shown in full (contain), so these stay centered and crop nothing. */
+.img-focus-top,
+.img-focus-mid,
 .img-focus-bottom {
-    object-position: center bottom;
+    object-position: center center;
 }
 
 .card:hover .card-img-top {
-    transform: scale(1.06);
+    transform: none;
 }
 
-/* Image container that clips the zooming image */
+/* Image container for card photos — no clipping, all content visible */
 .img-zoom {
-    overflow: hidden;
     border-radius: var(--radius) var(--radius) 0 0;
 }
 
@@ -660,14 +654,6 @@ main,
         font-size: 36px;
     }
 
-    .float-card.fc-1 {
-        left: 4px;
-    }
-
-    .float-card.fc-2 {
-        right: 4px;
-    }
-
     /* Collapsed menu: full-width rows that are comfortable to tap */
     .navbar-kt .navbar-collapse {
         margin-top: 0.5rem;
@@ -700,6 +686,17 @@ main,
 
     .hero-dark {
         padding: 56px 0;
+    }
+
+    /* Card photos stay 100% visible (contain) at a smaller uniform height so
+       tall portraits still letterbox rather than being cropped. */
+    .card-img-top {
+        height: 240px;
+    }
+
+    /* Hero photos stay fully visible on smaller tablets */
+    .image-wrapper img {
+        height: auto;
     }
 
     .float-card {
@@ -756,17 +753,23 @@ main,
         width: 100%;
     }
 
+    /* Hero badges stack below the photo on small phones */
+    .hero-badges {
+        flex-direction: column;
+    }
+
+    /* Card photos stay 100% visible (contain) at a smaller height on phones */
+    .card-img-top {
+        height: 190px;
+    }
+
+    .image-wrapper img {
+        height: auto;
+    }
+
     .float-card {
         font-size: 0.75rem;
         padding: 0.5rem 0.75rem;
-    }
-
-    .float-card.fc-1 {
-        left: 6px;
-    }
-
-    .float-card.fc-2 {
-        right: 6px;
     }
 
     .counter {
