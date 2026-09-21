@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Flags that JavaScript is running so scroll-reveal sections stay visible
+         instead of stuck hidden if JS is blocked or fails to load -->
+    <script>document.documentElement.classList.add("js");</script>
     <meta name="description" content="Kelly Tech Solutions - CCTV installation, software development, branding and printing services in Kenya.">
     <title>Kelly Tech Solutions | Home</title>
 
@@ -62,9 +66,9 @@
                         Your Business Digitally
                     </h1>
                     <p class="lead mb-4">
-                        From CCTV security and software development to branding and printing,
-                        Kelly Tech delivers reliable, modern solutions that help businesses
-                        grow faster and operate safely.
+                        From CCTV security and software development to branding, printing,
+                        tech machine supply and interior design, Kelly Tech delivers reliable,
+                        modern solutions that help businesses grow faster and operate safely.
                     </p>
                     <div class="buttons d-flex gap-3">
                         <a href="services.html" class="btn btn-kt px-4 py-2">Explore Services</a>
@@ -185,6 +189,19 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Additional services -->
+        <div class="text-center mt-5 reveal">
+            <p class="text-muted mb-3">Also available:</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <a href="services.html" class="badge badge-kt rounded-pill px-3 py-2">
+                    <i class="bi bi-cpu-fill me-1"></i>Machine &amp; Equipment Supply
+                </a>
+                <a href="services.html" class="badge badge-kt rounded-pill px-3 py-2">
+                    <i class="bi bi-house-heart-fill me-1"></i>Interior Design
+                </a>
             </div>
         </div>
     </div>

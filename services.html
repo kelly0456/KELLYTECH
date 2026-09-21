@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Flags that JavaScript is running so scroll-reveal sections stay visible
+         instead of stuck hidden if JS is blocked or fails to load -->
+    <script>document.documentElement.classList.add("js");</script>
     <meta name="description" content="Our services - CCTV installation, branding, software development and printing by Kelly Tech Solutions, Kenya.">
     <title>Our Services | Kelly Tech Solutions</title>
 
@@ -49,7 +53,7 @@
 <!-- HERO HEADER -->
 <section class="hero-dark">
     <div class="container text-center reveal">
-        <span class="badge badge-kt rounded-pill px-3 py-2 mb-3" style="background: rgba(255,255,255,0.12); color: #00cfff; border: 1px solid rgba(0,207,255,0.4);">
+        <span class="badge badge-kt rounded-pill px-3 py-2 mb-3">
             <i class="bi bi-stars me-2"></i>PROFESSIONAL ICT SOLUTIONS
         </span>
         <h1 class="display-4 fw-bold text-white">Our <span class="brand-text">Services</span></h1>
@@ -196,6 +200,54 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Machine & Equipment Supply -->
+            <div class="col-lg-4 col-md-6 reveal">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-circle rounded-circle d-inline-flex justify-content-center align-items-center mb-4">
+                            <i class="bi bi-cpu-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold">Machine &amp; Equipment Supply</h4>
+                        <p class="text-muted small">
+                            We supply, install and configure the tech machines your business
+                            runs on — computers, printers, cameras and networking equipment.
+                        </p>
+                        <ul class="list-group list-group-flush mb-4 text-start">
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Computers &amp; Laptops</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Printers &amp; Copiers</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Network &amp; CCTV Kits</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-kt w-100">Request Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interior Design -->
+            <div class="col-lg-4 col-md-6 reveal">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-circle rounded-circle d-inline-flex justify-content-center align-items-center mb-4">
+                            <i class="bi bi-house-heart-fill fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold">Interior Design</h4>
+                        <p class="text-muted small">
+                            Modern, practical interior design and finishing for homes, offices,
+                            shops and institutions — from concept to completion.
+                        </p>
+                        <ul class="list-group list-group-flush mb-4 text-start">
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Space Planning</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Ceiling, Lighting &amp; Paint</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Office &amp; Shop Fit-outs</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-kt w-100">Request Service</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <!-- CTA -->
 <section class="cta py-5 text-center">
