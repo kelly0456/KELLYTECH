@@ -56,6 +56,7 @@ footer {
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 section {
@@ -97,7 +98,7 @@ section {
 }
 
 .navbar-kt img {
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 0 0 2px var(--kt-blue), 0 0 14px rgba(0, 207, 255, 0.55);
 }
 
@@ -384,9 +385,17 @@ a.badge-kt:hover {
     transform: none;
 }
 
-/* Image container for card photos — no clipping, all content visible */
+/* Image container for card photos — no clipping, all content visible.
+   overflow: hidden rounds the top corners to match border-radius while
+   object-fit: contain on the image keeps every pixel of the artwork visible. */
 .img-zoom {
     border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+}
+
+/* Footer logo: show the full logo without cropping or distortion */
+footer img {
+    object-fit: contain;
 }
 
 /* Icon circles on service cards */
