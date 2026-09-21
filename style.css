@@ -266,8 +266,26 @@ a.badge-kt:hover {
 .image-wrapper img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 4 / 3;
+    /* One fixed frame ratio for every width: the photo is cropped the same way
+       on a phone and on a desktop, so a subject can never be chopped on one
+       screen while it looks right on another. */
+    aspect-ratio: 16 / 10;
     object-fit: cover;
+}
+
+/* The hero photo is a stock flyer, so it carries its own headline in the top
+   band and a third-party watermark (another agency's phone numbers) along the
+   bottom edge. 76% parks the crop on the laptop + badge area and keeps both of
+   those bands out of frame at every width. */
+.hero-media .image-wrapper img {
+    object-position: center 76%;
+}
+
+/* The about page shows a near-square flyer in full, so its frame stays square
+   (nothing on that artwork is cut off). */
+.image-wrapper.square,
+.image-wrapper.square img {
+    aspect-ratio: 1 / 1;
 }
 
 /* Floating glassy badges over the hero image */
@@ -292,8 +310,11 @@ a.badge-kt:hover {
     font-size: 1.3rem;
 }
 
+/* Both chips sit low in the frame, over the empty desk area of the photo and
+   below the feature card that is baked into it, so they can never land on top
+   of the artwork's own headline, subtitle or card text. */
 .float-card.fc-1 {
-    top: 8%;
+    bottom: 10%;
     left: -18px;
 }
 
@@ -339,10 +360,29 @@ a.badge-kt:hover {
 }
 
 .card-img-top {
-    height: 220px;
     width: 100%;
+    /* Height comes from the frame ratio instead of a fixed pixel height, so the
+       thumbnail is cropped identically in the 3-up desktop grid, the 3-up
+       tablet grid and the 1-up phone layout. */
+    height: auto;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     transition: transform 0.5s ease;
+}
+
+/* Focal points. Every service photo has a different shape, so one shared frame
+   crops each of them differently; steering the crop keeps the actual subject in
+   view and stops half-cut objects or headline text at the frame edge. */
+.img-focus-top {
+    object-position: center 25%;
+}
+
+.img-focus-mid {
+    object-position: center 38%;
+}
+
+.img-focus-bottom {
+    object-position: center bottom;
 }
 
 .card:hover .card-img-top {
@@ -662,11 +702,6 @@ main,
         padding: 56px 0;
     }
 
-    .image-wrapper,
-    .image-wrapper img {
-        aspect-ratio: 16 / 11;
-    }
-
     .float-card {
         font-size: 0.8rem;
         padding: 0.55rem 0.85rem;
@@ -674,10 +709,6 @@ main,
 
     .float-card i {
         font-size: 1.1rem;
-    }
-
-    .card-img-top {
-        height: 200px;
     }
 
     .counter {
@@ -723,10 +754,6 @@ main,
 
     .buttons .btn {
         width: 100%;
-    }
-
-    .card-img-top {
-        height: 180px;
     }
 
     .float-card {
