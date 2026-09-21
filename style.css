@@ -257,13 +257,14 @@ a.badge-kt:hover {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    transition: transform var(--transition);
+    box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(10, 16, 32, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition);
     background: #fff;
 }
 
 .image-wrapper:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(10, 16, 32, 0.25), inset 0 0 0 1px rgba(10, 16, 32, 0.05);
 }
 
 .image-wrapper img {
@@ -370,6 +371,8 @@ a.badge-kt:hover {
     object-fit: contain;
     object-position: center center;
     background: #fff;
+    /* Subtle divider between the image and the card body for a clean, professional separation */
+    border-bottom: 1px solid rgba(10, 16, 32, 0.04);
     transition: transform 0.5s ease;
 }
 
@@ -393,9 +396,11 @@ a.badge-kt:hover {
     overflow: hidden;
 }
 
-/* Footer logo: show the full logo without cropping or distortion */
+/* Footer logo: show the full logo without cropping or distortion,
+   with a subtle white ring that mirrors the navbar logo's ring on dark bg */
 footer img {
     object-fit: contain;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
 }
 
 /* Icon circles on service cards */
@@ -843,5 +848,10 @@ main,
 
     .card:hover .card-img-top {
         transform: none;
+    }
+
+    /* Reset image-wrapper hover shadow on touch devices */
+    .image-wrapper:hover {
+        box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(10, 16, 32, 0.05);
     }
 }
