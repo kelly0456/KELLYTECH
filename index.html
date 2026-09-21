@@ -1,192 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kelly Tech Solutions - CCTV installation, software development, branding and printing services in Kenya.">
     <title>Kelly Tech Solutions | Home</title>
 
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+
+    <!-- Preconnects for faster CDN loading -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top shadow-sm">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-kt sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold text-dark d-flex align-items-center" href="index.html">
-            <img src="images/logo.png" alt="Kelly Tech Logo" width="60" height="60" class="me-2 rounded-circle">
-            Kelly Tech
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <img src="images/logo.jpg" alt="Kelly Tech Logo" width="56" height="56" class="me-2 rounded-circle">
+            <span class="text-white">Kelly</span><span class="brand-text">Tech</span>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto fw-semibold">
-                <li class="nav-item"><a class="nav-link text-dark active" href="index.html" aria-current="page">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            <a href="contact.html" class="btn btn-kt ms-lg-3 mt-3 mt-lg-0 px-4">Get a Quote</a>
         </div>
     </div>
 </nav>
 
-<main class="container py-5">
-    <section class="hero row align-items-center mb-5">
-        <div class="hero-text col-lg-6 mb-5 mb-lg-0">
-            <h1 class="display-4 fw-bold mb-4">Build, Brand & Secure Your Business</h1>
-            <p class="lead text-muted mb-4">
-                We design, develop, and secure digital solutions that help businesses
-                grow faster and operate more efficiently.
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="hero-text col-lg-6 mb-5 mb-lg-0 reveal">
+                    <span class="badge badge-kt rounded-pill px-3 py-2 mb-3">
+                        <i class="bi bi-stars me-1"></i>TECH SOLUTIONS FOR A BETTER TOMORROW
+                    </span>
+                    <h1 class="display-4 mb-4">
+                        We <span id="typedWord" class="typed-word">Build</span><span class="typed-caret"></span><br>
+                        Your Business Digitally
+                    </h1>
+                    <p class="lead mb-4">
+                        From CCTV security and software development to branding and printing,
+                        Kelly Tech delivers reliable, modern solutions that help businesses
+                        grow faster and operate safely.
+                    </p>
+                    <div class="buttons d-flex gap-3">
+                        <a href="services.html" class="btn btn-kt px-4 py-2">Explore Services</a>
+                        <a href="https://wa.me/254732307868" target="_blank" rel="noopener" class="btn btn-outline-kt px-4 py-2">
+                            <i class="bi bi-whatsapp me-2"></i>WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-media col-lg-6 reveal">
+                    <div class="image-wrapper">
+                        <img src="images/Web.jpg" alt="Kelly Tech web development project" fetchpriority="high" decoding="async">
+                        <div class="float-card fc-1">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            <div>250+<br><span class="fw-normal text-muted">Projects Done</span></div>
+                        </div>
+                        <div class="float-card fc-2">
+                            <i class="bi bi-headset"></i>
+                            <div>24/7<br><span class="fw-normal text-muted">Support</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- SERVICES PREVIEW -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <span class="badge badge-kt rounded-pill px-3 py-2 mb-2">WHAT WE DO</span>
+            <h2 class="fw-bold">Our Core Services</h2>
+            <p class="text-muted mx-auto" style="max-width: 620px;">
+                Quality work, delivered fast — explore the services our clients trust us with every day.
             </p>
-            <div class="buttons d-flex gap-3">
-                <a href="services.html" class="btn btn-warning px-4 py-2 fw-bold">Explore Services</a>
-                <a href="https://wa.me/254732307868" class="btn btn-outline-dark px-4 py-2 fw-bold">WhatsApp</a>
-            </div>
         </div>
 
-        <div class="hero-media col-lg-6">
-            <div class="image-wrapper shadow-lg position-relative">
-                <img src="images/logo.png" alt="Business Branding" class="img-fluid rounded">
-                <div class="play-btn">▶</div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/cctv.jpg" class="card-img-top" loading="lazy" decoding="async" alt="CCTV Installation">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-camera-video-fill text-gradient me-2"></i>CCTV Installation</h5>
+                        <p class="small text-muted mb-0">
+                            Professional installation and setup of security surveillance systems.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section class="row g-4 py-5">
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/cctv.jpg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="CCTV Installation">
-                <div class="card-body">
-                    <h5 class="fw-bold">CCTV Installation</h5>
-                    <p class="small text-muted">
-                        Professional installation and setup of security surveillance systems.
-                    </p>
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/website.jpeg" class="card-img-top" loading="lazy" decoding="async" alt="Software Development">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-code-slash text-gradient me-2"></i>Software Development</h5>
+                        <p class="small text-muted mb-0">
+                            Functional, scalable, and reliable software and web solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/branding.jpg" class="card-img-top" loading="lazy" decoding="async" alt="Branding and Logo Design">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-palette-fill text-gradient me-2"></i>Branding &amp; Logo Design</h5>
+                        <p class="small text-muted mb-0">
+                            Creative branding solutions that strengthen your brand identity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/ID.jpeg" class="card-img-top" loading="lazy" decoding="async" alt="ID Card Printing">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-person-badge-fill text-gradient me-2"></i>ID Card Printing</h5>
+                        <p class="small text-muted mb-0">
+                            Durable and professional ID cards for institutions and companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/Print.jpg" class="card-img-top" loading="lazy" decoding="async" alt="General Printing Services">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-printer-fill text-gradient me-2"></i>Printing Services</h5>
+                        <p class="small text-muted mb-0">
+                            High-quality posters, magazines and documents tailored to you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="img-zoom">
+                        <img src="images/Calender.jpg" class="card-img-top" loading="lazy" decoding="async" alt="Custom Calendar Printing">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold"><i class="bi bi-calendar-week-fill text-gradient me-2"></i>Calendar Printing</h5>
+                        <p class="small text-muted mb-0">
+                            Professionally designed calendars with your photos or brand.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/website.jpeg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="Software Development">
-                <div class="card-body">
-                    <h5 class="fw-bold">Software Development</h5>
-                    <p class="small text-muted">
-                        Functional, scalable, and reliable software solutions.
-                    </p>
+<!-- WHY CHOOSE US -->
+<section class="py-5 hero-dark">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <h2 class="fw-bold text-white">Why Choose Kelly Tech?</h2>
+            <p class="opacity-75 mb-0">Technology • Security • Innovation</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 col-6 reveal">
+                <div class="text-center p-4 h-100">
+                    <i class="bi bi-lightning-charge-fill display-4 text-gradient"></i>
+                    <h5 class="mt-3 text-white fw-bold">Fast Delivery</h5>
+                    <p class="small opacity-75 mb-0">Quick turnaround without compromising quality.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 reveal">
+                <div class="text-center p-4 h-100">
+                    <i class="bi bi-award-fill display-4 text-gradient"></i>
+                    <h5 class="mt-3 text-white fw-bold">Quality Work</h5>
+                    <p class="small opacity-75 mb-0">Clean, modern designs built for trust.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 reveal">
+                <div class="text-center p-4 h-100">
+                    <i class="bi bi-headset display-4 text-gradient"></i>
+                    <h5 class="mt-3 text-white fw-bold">24/7 Support</h5>
+                    <p class="small opacity-75 mb-0">We are always a call or message away.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 reveal">
+                <div class="text-center p-4 h-100">
+                    <i class="bi bi-shield-lock-fill display-4 text-gradient"></i>
+                    <h5 class="mt-3 text-white fw-bold">Secure Systems</h5>
+                    <p class="small opacity-75 mb-0">Security-first solutions you can rely on.</p>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/magazine.jpg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="Magazine Printing">
-                <div class="card-body">
-                    <h5 class="fw-bold">Magazine Printing</h5>
-                    <p class="small text-muted">
-                        High-quality magazine printing for businesses and organizations.
-                    </p>
-                </div>
-            </div>
-        </div>
+<!-- CTA -->
+<section class="cta py-5 text-center">
+    <div class="container reveal">
+        <h2 class="fw-bold">Ready to start your project?</h2>
+        <p class="mb-4 opacity-90">Get a free quote today — we respond within hours.</p>
+        <a href="contact.html" class="btn btn-light btn-lg px-4 fw-bold text-primary">Contact Us</a>
+    </div>
+</section>
 
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/ID.jpeg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="ID Card Printing">
-                <div class="card-body">
-                    <h5 class="fw-bold">ID Card Printing</h5>
-                    <p class="small text-muted">
-                        Durable and professional ID cards for institutions and companies.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/Print.jpg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="General Printing Services">
-                <div class="card-body">
-                    <h5 class="fw-bold">Printing Services</h5>
-                    <p class="small text-muted">
-                        High-quality printing solutions tailored to your business needs.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/branding.jpg" class="card-img-top rounded-top" loading="lazy" decoding="async" alt="Branding and Logo Design">
-                <div class="card-body">
-                    <h5 class="fw-bold">Branding & Logo Design</h5>
-                    <p class="small text-muted">
-                        Creative branding solutions that strengthen your brand identity.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm">
-                <img src="images/Calender.jpg" class="card-img-top rounded-top" loading="lazy" decoding="async" loading="lazy" decoding="async" alt="Custom Calendar Printing">
-                <div class="card-body">
-                    <h5 class="fw-bold">Calendar Printing</h5>
-                    <p class="small text-muted">
-                        Professionally designed calendars with your family or event photos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features row mt-5">
-        <div class="col-md-4 mb-3">
-            <div class="feature-card border-start border-warning border-4 p-4 bg-white shadow-sm">
-                <h5 class="fw-bold">Fast Delivery</h5>
-                <p class="small text-muted mb-0">
-                    Quick turnaround times without compromising quality.
-                </p>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="feature-card border-start border-warning border-4 p-4 bg-white shadow-sm">
-                <h5 class="fw-bold">Modern Design</h5>
-                <p class="small text-muted mb-0">
-                    Clean, modern designs built for trust and conversions.
-                </p>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="feature-card border-start border-warning border-4 p-4 bg-white shadow-sm">
-                <h5 class="fw-bold">Secure Systems</h5>
-                <p class="small text-muted mb-0">
-                    Security-first development practices you can rely on.
-                </p>
-            </div>
-        </div>
-    </section>
 </main>
 
-<footer class="bg-dark text-light pt-5 pb-3">
+<!-- FOOTER -->
+<footer class="bg-dark text-light pt-5 pb-3" data-bs-theme="dark">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <h5 class="fw-bold text-warning">Kelly Tech Solutions</h5>
+                <h5 class="fw-bold d-flex align-items-center">
+                    <img src="images/logo.jpg" alt="" width="40" height="40" class="rounded-circle me-2" loading="lazy">
+                    Kelly<span class="brand-text">Tech</span>
+                </h5>
                 <p class="small opacity-75">
                     We bring your ideas to life through technology and creativity.
                 </p>
             </div>
 
             <div class="col-md-4 mb-4">
-                <h6 class="fw-bold text-warning">Quick Links</h6>
+                <h6 class="fw-bold text-gradient">Quick Links</h6>
                 <ul class="nav flex-column">
                     <li><a class="text-light text-decoration-none small opacity-75" href="index.html">Home</a></li>
                     <li><a class="text-light text-decoration-none small opacity-75" href="services.html">Services</a></li>
@@ -196,22 +266,29 @@
             </div>
 
             <div class="col-md-4 mb-4">
-                <h6 class="fw-bold text-warning">Contact Us</h6>
-                <p class="small mb-1 opacity-75">Phone: 0714 199 985</p>
-                <p class="small mb-1 opacity-75">Email: kellytech@gmail.com</p>
-                <p class="small opacity-75">Website: www.kellytech.com</p>
+                <h6 class="fw-bold text-gradient">Contact Us</h6>
+                <p class="small mb-1 opacity-75"><i class="bi bi-telephone-fill me-2"></i>Phone: 0714 199 985</p>
+                <p class="small mb-1 opacity-75"><i class="bi bi-envelope-fill me-2"></i>Email: kellytech@gmail.com</p>
+                <p class="small mb-1 opacity-75"><i class="bi bi-globe me-2"></i>Website: www.kellytech.com</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="https://wa.me/254732307868" target="_blank" rel="noopener" class="text-light fs-5" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:kellytech@gmail.com" class="text-light fs-5" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:+254714199985" class="text-light fs-5" aria-label="Phone"><i class="bi bi-telephone"></i></a>
+                </div>
             </div>
         </div>
 
         <div class="text-center border-top border-secondary pt-3 mt-3">
             <small class="opacity-50">
-                © 2026 Kelly Tech Solutions. All rights reserved.
+                © <span class="kt-year">2026</span> Kelly Tech Solutions. All rights reserved.
             </small>
         </div>
     </div>
 </footer>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
+
