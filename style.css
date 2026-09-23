@@ -363,21 +363,20 @@ a.badge-kt:hover {
 
 .card-img-top {
     width: 100%;
-    /* Uniform card image height: every card photo is shown 100% (object-fit:
-       contain), including the tall ID.jpeg portrait and the cctv/calendar
-       portraits. Tall images letterbox on white rather than being cropped, so
-       nothing is ever cut off. All cards in a row stay the same height. */
+    /* Uniform card image height keeps every card in a row the same size.
+       object-fit: cover scales the photo to completely fill the container
+       (cropping overflow), so images sit flush inside the card with no white
+       letterbox bars. object-position: center keeps the focal area visible. */
     height: 320px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
-    background: #fff;
     /* Subtle divider between the image and the card body for a clean, professional separation */
     border-bottom: 1px solid rgba(10, 16, 32, 0.04);
     transition: transform 0.5s ease;
 }
 
 /* Kept for compatibility with the img-focus-* classes used in index.html.
-   Images are shown in full (contain), so these stay centered and crop nothing. */
+   With object-fit: cover these fine-tune which part of the image stays visible. */
 .img-focus-top,
 .img-focus-mid,
 .img-focus-bottom {
@@ -388,9 +387,8 @@ a.badge-kt:hover {
     transform: none;
 }
 
-/* Image container for card photos — no clipping, all content visible.
-   overflow: hidden rounds the top corners to match border-radius while
-   object-fit: contain on the image keeps every pixel of the artwork visible. */
+/* Image container for card photos — overflow: hidden rounds the top corners
+   to match the card border-radius while object-fit: cover fills the space. */
 .img-zoom {
     border-radius: var(--radius) var(--radius) 0 0;
     overflow: hidden;
