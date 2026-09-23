@@ -370,9 +370,19 @@ a.badge-kt:hover {
     height: 320px;
     object-fit: cover;
     object-position: center center;
+    /* Tappable: opening a card image shows the full photo */
+    cursor: zoom-in;
     /* Subtle divider between the image and the card body for a clean, professional separation */
     border-bottom: 1px solid rgba(10, 16, 32, 0.04);
     transition: transform 0.5s ease;
+}
+
+/* Full-screen preview held by the image modal */
+.img-preview-modal {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: 100%;
+    height: auto;
 }
 
 /* Kept for compatibility with the img-focus-* classes used in index.html.

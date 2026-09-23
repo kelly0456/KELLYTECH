@@ -124,9 +124,49 @@
         typeLoop();
     }
 
-    /* --- 7. Auto-updating copyright year --- */
+        /* --- 7. Auto-updating copyright year --- */
     document.querySelectorAll(".kt-year").forEach(function (el) {
         el.textContent = new Date().getFullYear();
     });
+
+    /* --- 8. Card image full-screen preview --- */
+    /* Tapping/clicking a card image opens the full photo in a Bootstrap modal.
+       The modal is injected once per page (index.html) and reused for every
+       card image, so it works on both touch devices and desktops. */
+    (function () {
+        var modalEl = document.getElementById("imgPreviewModal");
+        if (!modalEl) return;
+
+        var modalImg = modalEl.querySelector("#imgPreviewImage");
+        var modal = new bootstrap.Modal(modalEl, { backdrop: true, keyboard: true });
+
+        function openImg(img) {
+            modalImg.src = img.src;
+            modalImg.alt = img.alt || "Full-size image";
+            modal.show();
+        }
+
+        document.querySelectorAll(".card-img-top").forEach(function (img) {
+            img.setAttribute("role", "button");
+            img.tabIndex = 0;
+
+            img.addEventListener("click", function () { openImg(img); });
+            img.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openImg(img);
+                }
+            });
+        });
+
+        /* Tap/click the full image to close */
+        modalImg.addEventListener("click", function () { modal.hide(); });
+
+        /* Clear the src after closing to free memory on large photos */
+        modalEl.addEventListener("hidden.bs.modal", function () {
+            modalImg.src = "";
+            modalImg.alt = "";
+        });
+    })();
 })();
 
