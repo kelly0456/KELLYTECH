@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Build artifacts (if any)
+dist/
+build/
+*.log
+
+# Node / npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Environment files
+.env
+.env.local
+.env.*.local

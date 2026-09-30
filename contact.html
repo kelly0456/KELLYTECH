@@ -1,24 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Flags that JavaScript is running so scroll-reveal sections stay visible
-         instead of stuck hidden if JS is blocked or fails to load -->
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1E8FFF">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
+
+    <!-- Flags JS so scroll-reveal sections stay visible -->
     <script>document.documentElement.classList.add("js");</script>
-    <meta name="description" content="Contact Kelly Tech Solutions - call, email, WhatsApp or send us a message online.">
+
+    <!-- SEO Metadata -->
+    <meta name="description" content="Contact Kelly Tech Solutions — call, email, WhatsApp or send us a message online. We respond within hours.">
+    <meta name="author" content="Kelly Tech">
+    <meta name="keywords" content="Kelly Tech contact, Kenya technology company, contact form, WhatsApp, phone number">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Contact Kelly Tech Solutions | Kenya">
+    <meta property="og:description" content="Call, email, WhatsApp or send us a message — Kelly Tech Solutions responds within hours.">
+    <meta property="og:image" content="https://kellytech.co.ke/images/logo.jpg">
+    <meta property="og:url" content="https://kellytech.co.ke/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_KE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Kelly Tech Solutions | Kenya">
+    <meta name="twitter:description" content="Call, email, WhatsApp or send us a message — Kelly Tech responds within hours.">
+    <meta name="twitter:image" content="https://kellytech.co.ke/images/logo.jpg">
+
     <title>Contact Us | Kelly Tech Solutions</title>
 
     <link rel="icon" type="image/jpeg" href="images/logo.jpg">
 
-    <!-- Preconnects for faster CDN loading -->
+    <!-- Preconnects -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+
+    <!-- Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- EmailJS -->
@@ -53,174 +84,183 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
             </ul>
-            <a href="tel:+254714199985" class="btn btn-kt ms-lg-3 mt-3 mt-lg-0 px-4">
-                <i class="bi bi-telephone-fill me-2"></i>0714 199 985
-            </a>
+            <div class="d-flex align-items-center">
+                <a href="tel:+254732307868" class="nav-phone" aria-label="Call 0732 307 868">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="contact.html" class="btn btn-kt ms-2 mt-3 mt-lg-0 px-4">Get a Quote</a>
+            </div>
         </div>
     </div>
 </nav>
 
 <main>
 
-<!-- HERO -->
-<section class="hero-dark">
-    <div class="container text-center reveal">
-        <h1 class="display-4 fw-bold">Contact <span class="brand-text">Us</span></h1>
-        <p class="lead opacity-75 mb-0">We'd love to hear about your project — reach out any time.</p>
-    </div>
-</section>
+    <!-- HERO -->
+    <section class="hero-dark">
+        <div class="container text-center reveal">
+            <h1 class="display-4 fw-bold">Contact <span class="brand-text">Us</span></h1>
+            <p class="lead opacity-75 mb-0">We'd love to hear about your project — reach out any time.</p>
+        </div>
+    </section>
 
-<!-- QUICK CONTACT CARDS -->
-<section class="py-5">
-    <div class="container">
-        <div class="row g-4">
+    <!-- QUICK CONTACT CARDS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
 
-            <!-- Phone -->
-            <div class="col-lg-3 col-md-6 reveal">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body p-4">
-                        <i class="bi bi-telephone-fill display-4"></i>
+                <!-- Phone -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
                         <h4 class="mt-3 fw-bold">Call Us</h4>
-                        <p class="text-muted">0714 199 985</p>
-                        <a href="tel:+254714199985" class="btn btn-kt">Call Now</a>
+                        <p class="text-muted">0732 307 868</p>
+                        <a href="tel:+254732307868" class="btn btn-kt">Call Now</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Email -->
-            <div class="col-lg-3 col-md-6 reveal">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body p-4">
-                        <i class="bi bi-envelope-fill display-4"></i>
+                <!-- Email -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
                         <h4 class="mt-3 fw-bold">Email</h4>
-                        <p class="text-muted small">kellytechinnovation@gmail.com</p>
-                        <a href="mailto:kellytechinnovation@gmail.com" class="btn btn-kt">Send Email</a>
+                        <p class="text-muted small">kellytech@gmail.com</p>
+                        <a href="mailto:kellytech@gmail.com" class="btn btn-kt">Send Email</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- WhatsApp -->
-            <div class="col-lg-3 col-md-6 reveal">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body p-4">
-                        <i class="bi bi-whatsapp display-4" style="color: #25d366;"></i>
+                <!-- WhatsApp -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="contact-card">
+                        <i class="fa-brands fa-whatsapp display-4 whatsapp-color"></i>
                         <h4 class="mt-3 fw-bold">WhatsApp</h4>
                         <p class="text-muted">Chat with us instantly.</p>
                         <a href="https://wa.me/254732307868" target="_blank" rel="noopener" class="btn btn-success">Chat Now</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Location -->
-            <div class="col-lg-3 col-md-6 reveal">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body p-4">
-                        <i class="bi bi-geo-alt-fill display-4"></i>
+                <!-- Location -->
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
                         <h4 class="mt-3 fw-bold">Location</h4>
                         <p class="text-muted">Kenya</p>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-kt">View Map</a>
+                        <a href="https://maps.google.com/maps?q=Kelly+Tech+Kenya" target="_blank" rel="noopener" class="btn btn-kt">View Map</a>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GOOGLE MAPS -->
+    <section class="py-5 bg-light">
+        <div class="container reveal">
+            <div class="text-center mb-4">
+                <span class="badge badge-kt rounded-pill px-3 py-2 mb-2">FIND US</span>
+                <h2 class="fw-bold">We Are Based In Kenya</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Kelly Tech Solutions serves clients across Kenya. Reach out to discuss your project.
+                </p>
+            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1f0!2f0!3f0!3m2!11en!2sch!4f13.1!3m3!1ld506045.439442702!3d-1.2864!4d36.8172!5e0!3m2!1sen!2ske!4m3!2ben!5esb"
+                    style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Kelly Tech Solutions - Kenya">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4 reveal">
+                <span class="badge badge-kt rounded-pill px-3 py-2 mb-3">
+                    <i class="fa-solid fa-comments me-2"></i>SEND US A MESSAGE
+                </span>
+                <h2 class="fw-bold">We'd Love To Hear From You</h2>
+                <p class="lead text-secondary mb-0">Fill in the form below and we will get back to you shortly.</p>
             </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT FORM -->
-<section class="py-5 bg-light border-top">
-    <div class="container">
-
-        <div class="text-center mb-4 reveal">
-            <span class="badge badge-kt rounded-pill px-3 py-2 mb-3">
-                <i class="bi bi-chat-dots-fill me-2"></i>SEND US A MESSAGE
-            </span>
-            <h2 class="fw-bold">We'd Love To Hear From You</h2>
-            <p class="lead text-secondary mb-0">Fill in the form below and we will get back to you shortly.</p>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8 reveal">
-                <div class="card form-card border-0 shadow">
-                    <div class="card-body p-4 p-md-5">
-
-                        <form id="contactForm" class="needs-validation" novalidate>
-                            <div class="row g-3">
-
-                                <div class="col-md-6">
-                                    <label for="from_name" class="form-label fw-semibold">Full Name</label>
-                                    <input type="text" class="form-control" id="from_name" name="from_name" placeholder="Your name" required>
-                                    <div class="invalid-feedback">Please enter your name.</div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="card form-card border-0 shadow">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="contactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label fw-semibold">Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <div class="invalid-feedback">Please enter your name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-semibold">Email *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <div class="invalid-feedback">Please enter a valid email.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label fw-semibold">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                        <div class="invalid-feedback">Please enter a valid phone number.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="service" class="form-label fw-semibold">Service *</label>
+                                        <select class="form-select" id="service" name="service" required>
+                                            <option value="">Select a service</option>
+                                            <option>CCTV Installation</option>
+                                            <option>Solar Panel Installation</option>
+                                            <option>Software & Web Development</option>
+                                            <option>Branding & Logo Design</option>
+                                            <option>ID Card Printing</option>
+                                            <option>Printing Services</option>
+                                            <option>Calendar Printing</option>
+                                            <option>Interior Design</option>
+                                            <option>Machine & Equipment Supply</option>
+                                            <option>Other</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select a service.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label fw-semibold">Message *</label>
+                                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                                        <div class="invalid-feedback">Please enter your message.</div>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="from_email" class="form-label fw-semibold">Email Address</label>
-                                    <input type="email" class="form-control" id="from_email" name="from_email" placeholder="you@example.com" required>
-                                    <div class="invalid-feedback">Please enter a valid email address.</div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="phone" class="form-label fw-semibold">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="07XX XXX XXX">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject" class="form-label fw-semibold">Service Needed</label>
-                                    <select class="form-select" id="subject" name="subject" required>
-                                        <option value="" selected disabled>Choose a service...</option>
-                                        <option>CCTV Installation</option>
-                                        <option>Branding</option>
-                                        <option>Poster Printing</option>
-                                        <option>Software &amp; Web Development</option>
-                                        <option>ID &amp; Calendar Printing</option>
-                                        <option>ICT Solutions</option>
-                                        <option>Machine &amp; Equipment Supply</option>
-                                        <option>Interior Design</option>
-                                        <option>Solar Installation</option>
-                                        <option>Other</option>
-                                    </select>
-                                    <div class="invalid-feedback">Please choose a service.</div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label for="message" class="form-label fw-semibold">Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-                                    <div class="invalid-feedback">Please tell us a little about your project.</div>
-                                </div>
-
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-kt px-5 py-2">
-                                        <i class="bi bi-send-fill me-2"></i>Send Message
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-kt w-100 btn-lg fw-bold">
+                                        <i class="fa-solid fa-paper-plane me-2"></i>Send Message
                                     </button>
                                 </div>
 
-                                <div class="col-12">
-                                    <div id="formAlert" class="alert d-none mt-3 mb-0" role="alert"></div>
-                                </div>
-
-                            </div>
-                        </form>
-
+                                <div id="formAlert" class="mt-3" role="alert" aria-live="polite"></div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
-</section>
+    </section>
 
 </main>
 
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/254732307868" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <!-- FOOTER -->
-<footer class="bg-dark text-light pt-5 pb-3" data-bs-theme="dark">
+<footer data-bs-theme="dark">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold d-flex align-items-center">
-                    <img src="images/logo.jpg" alt="" width="40" height="40" class="rounded-circle me-2" loading="lazy">
+                    <img src="images/logo.jpg" alt="Kelly Tech Logo" width="40" height="40" class="rounded-circle me-2" loading="lazy">
                     Kelly<span class="brand-text">Tech</span>
                 </h5>
-                <p class="small opacity-75">We bring your ideas to life with technology and creativity.</p>
+                <p class="small opacity-75">Technology • Security • Innovation</p>
             </div>
 
             <div class="col-md-4 mb-4">
@@ -234,15 +274,23 @@
             </div>
 
             <div class="col-md-4 mb-4">
-                <h6 class="fw-bold text-gradient">Contact</h6>
-                <p class="small mb-1 opacity-75"><i class="bi bi-telephone-fill me-2"></i>Phone: 0714 199 985</p>
-                <p class="small mb-1 opacity-75"><i class="bi bi-envelope-fill me-2"></i>Email: kellytech@gmail.com</p>
-                <p class="small mb-1 opacity-75"><i class="bi bi-globe me-2"></i>Website: www.kellytech.com</p>
+                <h6 class="fw-bold text-gradient">Contact Us</h6>
+                <p class="small mb-1 opacity-75"><i class="fa-solid fa-phone me-2"></i>Phone: 0732 307 868</p>
+                <p class="small mb-1 opacity-75"><i class="fa-solid fa-envelope me-2"></i>Email: kellytech@gmail.com</p>
+                <p class="small mb-1 opacity-75"><i class="fa-solid fa-globe me-2"></i>Website: kellytech.co.ke</p>
+                <p class="small mb-3 opacity-75"><i class="fa-solid fa-location-dot me-2"></i>Kenya</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="https://wa.me/254732307868" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:kellytech@gmail.com" class="social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="tel:+254732307868" class="social-link" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                </div>
             </div>
         </div>
 
         <div class="text-center border-top border-secondary pt-3 mt-3">
-            <small class="opacity-50">© <span class="kt-year">2026</span> Kelly Tech Solutions. All Rights Reserved.</small>
+            <small class="opacity-50">
+                © <span class="kt-year">2026</span> Kelly Tech Solutions. All Rights Reserved.
+            </small>
         </div>
     </div>
 </footer>
@@ -250,61 +298,7 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
-
-<!-- Contact form: Bootstrap validation + EmailJS submission -->
-<script>
-(function () {
-    "use strict";
-
-    var form = document.getElementById("contactForm");
-    var alertBox = document.getElementById("formAlert");
-    if (!form) return;
-
-    function showAlert(type, text) {
-        alertBox.className = "alert alert-" + type + " mt-3 mb-0";
-        alertBox.textContent = text;
-    }
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (!form.checkValidity()) {
-            form.classList.add("was-validated");
-            return;
-        }
-
-        var submitBtn = form.querySelector("button[type='submit']");
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "<span class='spinner-border spinner-border-sm me-2'></span>Sending...";
-
-        // EmailJS keys are placeholders — wire these up for live email delivery.
-        if (typeof emailjs === "undefined") {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = "<i class='bi bi-send-fill me-2'></i>Send Message";
-            showAlert("success", "Thank you! Your message has been received — we will get back to you shortly.");
-            form.reset();
-            form.classList.remove("was-validated");
-            return;
-        }
-
-        emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
-            .then(function () {
-                showAlert("success", "Message sent successfully! We will get back to you shortly.");
-                form.reset();
-                form.classList.remove("was-validated");
-            })
-            .catch(function (error) {
-                console.error(error);
-                showAlert("danger", "Sorry, the message could not be sent. Please try again or reach us on WhatsApp.");
-            })
-            .finally(function () {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = "<i class='bi bi-send-fill me-2'></i>Send Message";
-            });
-    });
-})();
-</script>
-
 </body>
 </html>
+
+

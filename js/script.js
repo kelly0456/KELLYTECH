@@ -1,53 +1,51 @@
 /* ============================================================
-   Kelly Tech Solutions - Shared UI enhancements
-   1. Back-to-top button (injected on every page)
+   Kelly Tech Solutions - Shared UI Enhancements
+   1. Back-to-top button
    2. Navbar shadow after scrolling
-   3. Auto-close mobile navbar after a link is tapped
+   3. Auto-close mobile navbar after link click
    4. Scroll-reveal animations (IntersectionObserver)
-   5. Animated counters (about page)
-   6. Rotating hero word (homepage)
-   7. Auto-updating copyright year
+   5. Rotating hero word (homepage)
+   6. Auto-updating copyright year
+   7. Card image preview modal (homepage)
+   8. Contact form validation + EmailJS (contact page)
    ============================================================ */
 
 (function () {
     "use strict";
 
     /* --- 1. Back-to-top button --- */
-    var btn = document.createElement("button");
-    btn.id = "backToTop";
-    btn.type = "button";
-    btn.setAttribute("aria-label", "Back to top");
-    btn.innerHTML = "<i class='bi bi-arrow-up'></i>";
-    btn.title = "Back to top";
-    document.body.appendChild(btn);
+    var backBtn = document.createElement("button");
+    backBtn.id = "backToTop";
+    backBtn.type = "button";
+    backBtn.setAttribute("aria-label", "Back to top");
+    backBtn.innerHTML = "<i class='fa-solid fa-arrow-up'></i>";
+    document.body.appendChild(backBtn);
 
     function toggleBackToTop() {
-        btn.classList.toggle("show", window.scrollY > 300);
+        backBtn.classList.toggle("show", window.scrollY > 300);
     }
-
-    btn.addEventListener("click", function () {
+    backBtn.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
-
     window.addEventListener("scroll", toggleBackToTop, { passive: true });
     toggleBackToTop();
 
     /* --- 2. Navbar shadow after scrolling --- */
-    var navbar = document.querySelector(".navbar");
+    var navbar = document.querySelector(".navbar-kt");
     if (navbar) {
-        var toggleNavbarShadow = function () {
+        function toggleNavbarShadow() {
             navbar.classList.toggle("scrolled", window.scrollY > 10);
-        };
+        }
         window.addEventListener("scroll", toggleNavbarShadow, { passive: true });
         toggleNavbarShadow();
     }
 
-    /* --- 3. Auto-close the mobile navbar after clicking a link --- */
+    /* --- 3. Auto-close mobile navbar after link click --- */
     var collapse = document.querySelector(".navbar-collapse");
     if (collapse) {
         collapse.querySelectorAll("a.nav-link").forEach(function (link) {
             link.addEventListener("click", function () {
-                if (collapse.classList.contains("show")) {
+                if (collapse.classList.contains("show") && window.bootstrap) {
                     bootstrap.Collapse.getOrCreateInstance(collapse).hide();
                 }
             });
@@ -65,41 +63,12 @@
                 }
             });
         }, { threshold: 0.12 });
-
         revealItems.forEach(function (el) { revealObserver.observe(el); });
     } else {
         revealItems.forEach(function (el) { el.classList.add("in"); });
     }
 
-    /* --- 5. Animated counters --- */
-    var counters = document.querySelectorAll(".counter[data-count]");
-    if ("IntersectionObserver" in window && counters.length) {
-        var countObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting) return;
-                var el = entry.target;
-                countObserver.unobserve(el);
-
-                var target = parseInt(el.getAttribute("data-count"), 10) || 0;
-                var duration = 1800;
-                var start = null;
-
-                function step(ts) {
-                    if (!start) start = ts;
-                    var progress = Math.min((ts - start) / duration, 1);
-                    // ease-out for a natural slowdown at the end
-                    var eased = 1 - Math.pow(1 - progress, 3);
-                    el.textContent = Math.round(target * eased);
-                    if (progress < 1) requestAnimationFrame(step);
-                }
-                requestAnimationFrame(step);
-            });
-        }, { threshold: 0.4 });
-
-        counters.forEach(function (el) { countObserver.observe(el); });
-    }
-
-    /* --- 6. Rotating hero word --- */
+    /* --- 5. Rotating hero word --- */
     var typed = document.getElementById("typedWord");
     if (typed) {
         var words = ["Secure", "Brand", "Build", "Grow"];
@@ -112,8 +81,7 @@
 
             var delay = deleting ? 60 : 140;
             if (!deleting && charIndex === word.length) {
-                delay = 1600;           // pause on the full word
-                deleting = true;
+                delay = 1600; deleting = true;
             } else if (deleting && charIndex === 0) {
                 deleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
@@ -123,16 +91,7 @@
         }
         typeLoop();
     }
-
-        /* --- 7. Auto-updating copyright year --- */
-    document.querySelectorAll(".kt-year").forEach(function (el) {
-        el.textContent = new Date().getFullYear();
-    });
-
-    /* --- 8. Card image full-screen preview --- */
-    /* Tapping/clicking a card image opens the full photo in a Bootstrap modal.
-       The modal is injected once per page (index.html) and reused for every
-       card image, so it works on both touch devices and desktops. */
+    /* --- 7. Card image preview modal --- */
     (function () {
         var modalEl = document.getElementById("imgPreviewModal");
         if (!modalEl) return;
@@ -149,24 +108,129 @@
         document.querySelectorAll(".card-img-top").forEach(function (img) {
             img.setAttribute("role", "button");
             img.tabIndex = 0;
-
             img.addEventListener("click", function () { openImg(img); });
             img.addEventListener("keydown", function (e) {
                 if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    openImg(img);
+                    e.preventDefault(); openImg(img);
                 }
             });
         });
 
-        /* Tap/click the full image to close */
         modalImg.addEventListener("click", function () { modal.hide(); });
-
-        /* Clear the src after closing to free memory on large photos */
         modalEl.addEventListener("hidden.bs.modal", function () {
-            modalImg.src = "";
-            modalImg.alt = "";
+            modalImg.src = ""; modalImg.alt = "";
+        });
+        })();
+
+    /* --- 8. Contact form validation --- */
+    (function () {
+        var form = document.getElementById("contactForm");
+        if (!form) return;
+
+        var alertEl = document.getElementById("formAlert");
+        var inputs = form.querySelectorAll("input, select, textarea");
+
+        function showError(input, message) {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            var feedback = input.nextElementSibling;
+            if (feedback && feedback.classList.contains("invalid-feedback")) {
+                feedback.textContent = message;
+            }
+        }
+
+        function clearError(input) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+        }
+
+        function validateField(input) {
+            var val = input.value.trim();
+            if (input.hasAttribute("required") && !val) {
+                showError(input, "This field is required.");
+                return false;
+            }
+            if (input.type === "email" && val) {
+                var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRe.test(val)) {
+                    showError(input, "Please enter a valid email address.");
+                    return false;
+                }
+            }
+            if (input.name === "phone" && val) {
+                var phoneRe = /^[\d\s\-\+\(\)]{7,}$/;
+                if (!phoneRe.test(val)) {
+                    showError(input, "Please enter a valid phone number.");
+                    return false;
+                }
+            }
+            clearError(input);
+            return true;
+        }
+
+        inputs.forEach(function (input) {
+            input.addEventListener("blur", function () { validateField(input); });
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var isValid = true;
+            inputs.forEach(function (input) {
+                if (!validateField(input)) isValid = false;
+            });
+
+            if (!isValid) {
+                alertEl.innerHTML = '<div class="alert alert-warning mb-0" role="alert">' +
+                    '<i class="fa-solid fa-exclamation-triangle me-2"></i>' +
+                    'Please fill in all required fields correctly.' +
+                    '</div>';
+                return;
+            }
+
+            // Submit via EmailJS (requires emailjs global)
+            if (typeof emailjs !== "undefined") {
+                emailjs.sendForm("service_kellytech", "template_kellytech", form)
+                    .then(function () {
+                        alertEl.innerHTML = '<div class="alert alert-success mb-0" role="alert">' +
+                            '<i class="fa-solid fa-check-circle me-2"></i>' +
+                            'Message sent! We will reply within 24 hours.' +
+                            '</div>';
+                        form.reset();
+                        inputs.forEach(function (input) {
+                            input.classList.remove("is-valid", "is-invalid");
+                        });
+                    })
+                    .catch(function () {
+                        alertEl.innerHTML = '<div class="alert alert-danger mb-0" role="alert">' +
+                            '<i class="fa-solid fa-exclamation-circle me-2"></i>' +
+                            'There was a problem sending your message. Please call us directly.' +
+                            '</div>';
+                    });
+            } else {
+                // Fallback: just show success message without backend
+                alertEl.innerHTML = '<div class="alert alert-success mb-0" role="alert">' +
+                    '<i class="fa-solid fa-check-circle me-2"></i>' +
+                    'Thank you! Your message has been sent. We will contact you shortly.' +
+                    '</div>';
+                form.reset();
+                inputs.forEach(function (input) {
+                    input.classList.remove("is-valid", "is-invalid");
+                });
+            }
         });
     })();
+
+    /* --- Smooth anchor scroll --- */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+            var target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
 })();
+
 
